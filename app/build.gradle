@@ -6,7 +6,7 @@ plugins {
 android {
     namespace 'com.example.myapplication'
     compileSdk 33
-    ndkVersion "25.1.8937393"
+    ndkVersion "27.0.11718014"
 
     defaultConfig {
         applicationId "com.example.myapplication"
@@ -47,6 +47,7 @@ android {
                 "**/libapptest.so",
                 "**/libc++_shared.so",
             ]
+            useLegacyPackaging = true
         }
     }
 

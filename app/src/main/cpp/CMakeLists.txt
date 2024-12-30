@@ -31,6 +31,7 @@ target_link_options(app
     -flto
     -Wl,--version-script,${CMAKE_SOURCE_DIR}/libapp.map.txt
 )
+
 set_target_properties(app
   PROPERTIES
     LINK_DEPENDS ${CMAKE_SOURCE_DIR}/libapp.map.txt
@@ -43,4 +44,14 @@ target_link_libraries(app_tests
     googletest::gtest
     googletest::gmock
     junit-gtest::junit-gtest
+)
+
+target_link_options(app
+        PRIVATE
+        -Wl,-z,max-page-size=16384
+)
+
+target_link_options(app_tests
+        PRIVATE
+        -Wl,-z,max-page-size=16384
 )
